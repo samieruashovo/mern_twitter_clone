@@ -56,7 +56,7 @@ export const signup = async (req, res) => {
     }
   } catch (error) {
     console.log("Error in signup controller", error.message);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error3" });
   }
 };
 
@@ -74,7 +74,7 @@ export const login = async (req, res) => {
     }
 
     generateTokenAndSetCookie(user._id, res);
-
+    // console.log();
     res.status(200).json({
       _id: user._id,
       fullName: user.fullName,
@@ -84,10 +84,11 @@ export const login = async (req, res) => {
       following: user.following,
       profileImg: user.profileImg,
       coverImg: user.coverImg,
+      // cookie: cookie,
     });
   } catch (error) {
     console.log("Error in login controller", error.message);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error1" });
   }
 };
 
@@ -97,7 +98,7 @@ export const logout = async (req, res) => {
     res.status(200).json({ message: "Logged out successfully" });
   } catch (error) {
     console.log("Error in logout controller", error.message);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error2" });
   }
 };
 
@@ -107,6 +108,6 @@ export const getMe = async (req, res) => {
     res.status(200).json(user);
   } catch (error) {
     console.log("Error in getMe controller", error.message);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Erro " + error.message });
   }
 };
